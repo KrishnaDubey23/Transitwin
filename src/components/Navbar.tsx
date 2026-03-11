@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
 
 const navLinks = [
   { href: "#features", label: "Features" },
@@ -15,6 +16,8 @@ const navLinks = [
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { user, isLoading } = useAuth();
+
   return (
     <motion.header
       initial={{ y: -20, opacity: 0 }}
@@ -45,19 +48,37 @@ export function Navbar() {
 
           <div className="flex items-center gap-4">
             <Link
-              href="#demo"
+              href="/dashboard"
               className="text-sm text-[#111111] hover:text-[#6B6B6B] transition-colors hidden md:block"
             >
               Dashboard
             </Link>
+            {!isLoading &&
+              (user ? (
+                <Link
+                  href="/dashboard/profile"
+                  className="text-sm text-[#111111] hover:text-[#6B6B6B] transition-colors hidden md:block"
+                >
+                  Profile
+                </Link>
+              ) : (
+                <>
+                  <Link
+                    href="/login"
+                    className="text-sm text-[#111111] hover:text-[#6B6B6B] transition-colors hidden md:block"
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    href="/signup"
+                    className="hidden sm:inline-flex rounded-full bg-[#22C55E] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#1ea34f] transition-colors"
+                  >
+                    Sign up
+                  </Link>
+                </>
+              ))}
             <Link
-              href="#demo"
-              className="text-sm text-[#111111] hover:text-[#6B6B6B] transition-colors hidden md:block"
-            >
-              Login
-            </Link>
-            <Link
-              href="#demo"
+              href="/dashboard/planner"
               className="hidden sm:inline-flex rounded-full border border-[#111111] bg-white px-5 py-2.5 text-sm font-medium text-[#111111] transition-all hover:bg-[#111111] hover:text-white"
             >
               Find Smart Route
@@ -92,8 +113,17 @@ export function Navbar() {
                     {link.label}
                   </Link>
                 ))}
+                {!isLoading && !user && (
+                  <Link
+                    href="/signup"
+                    onClick={() => setMobileOpen(false)}
+                    className="block mx-4 mt-2 text-center rounded-full bg-[#22C55E] py-3 text-sm font-medium text-white"
+                  >
+                    Sign up
+                  </Link>
+                )}
                 <Link
-                  href="#demo"
+                  href="/dashboard/planner"
                   onClick={() => setMobileOpen(false)}
                   className="block mx-4 mt-4 text-center rounded-full border border-[#111111] bg-white py-3 text-sm font-medium text-[#111111] hover:bg-[#111111] hover:text-white"
                 >
