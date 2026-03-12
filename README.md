@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TransitWin
+
+Smart urban mobility platform with route planning, supporting services booking, and multi-modal transit.
+
+## Project Structure
+
+```
+hack/
+├── frontend/     # Next.js app (Planner, Dashboard, Bookings, Maps)
+├── backend/      # FastAPI (Auth, Routes, Trips, Stats)
+└── dataset/      # Mumbai Metro & Train station CSVs
+```
 
 ## Getting Started
 
-First, run the development server:
+### 1. Backend (FastAPI)
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# From project root
+npm run dev:backend
+# Or manually:
+cd backend
+python -m uvicorn main:app --reload --port 8000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Requires **MongoDB** (set `MONGODB_URL` in `backend/.env`)
+- Set **ORS_API_KEY** for car/road routing; metro & train routes work without it
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 2. Frontend (Next.js)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# From project root
+npm install
+npm run dev
+# Or from frontend folder:
+cd frontend && npm install && npm run dev
+```
 
-## Learn More
+1. Copy env file:
+   ```bash
+   cp frontend/.env.example frontend/.env.local
+   ```
+2. Add **NEXT_PUBLIC_MAPBOX_TOKEN** for live maps (get free token at https://account.mapbox.com/access-tokens/)
+   - Without it, a styled placeholder map is shown in the Planner
+3. Ensure **NEXT_PUBLIC_API_URL=http://localhost:8000** (default)
 
-To learn more about Next.js, take a look at the following resources:
+Open [http://localhost:3000](http://localhost:3000)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Maps
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Maps appear in:
+- **Smart Route Planner** – Mapbox map with route visualization
+- **Traffic** – SVG-based traffic heatmap
+- **Trip History** – SVG route replay
 
-## Deploy on Vercel
+For the **Planner map**, add `NEXT_PUBLIC_MAPBOX_TOKEN` to `frontend/.env.local`. A placeholder with route preview is shown if the token is missing.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Datasets
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Station data is in `dataset/`:
+- `mumbai_metro_stations_coords.csv` – Metro Line 1
+- `mumbai_train_stations_coords.csv` – Western/Central line
