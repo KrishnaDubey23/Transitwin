@@ -3,20 +3,13 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import {
-  Brain,
   Route,
   Train,
-  Leaf,
   Map,
   Building2,
 } from "lucide-react";
 
 const features = [
-  {
-    icon: Brain,
-    title: "AI Traffic Prediction",
-    description: "Machine learning models predict congestion patterns before you hit the road.",
-  },
   {
     icon: Route,
     title: "Smart Route Optimization",
@@ -26,11 +19,6 @@ const features = [
     icon: Train,
     title: "Multi Transport Integration",
     description: "Seamlessly combine metro, bus, cab, and walking for optimal journeys.",
-  },
-  {
-    icon: Leaf,
-    title: "Carbon Impact Tracker",
-    description: "See how much CO₂ you save by choosing sustainable transport options.",
   },
   {
     icon: Map,
