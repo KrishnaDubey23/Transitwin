@@ -1,0 +1,18 @@
+{
+  "/(auth)/login/page": "/login",
+  "/(auth)/signup/page": "/signup",
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/dashboard/bookings/[id]/page": "/dashboard/bookings/[id]",
+  "/dashboard/bookings/confirm/page": "/dashboard/bookings/confirm",
+  "/dashboard/bookings/page": "/dashboard/bookings",
+  "/dashboard/page": "/dashboard",
+  "/dashboard/planner/book/page": "/dashboard/planner/book",
+  "/dashboard/planner/page": "/dashboard/planner",
+  "/dashboard/planner/services/page": "/dashboard/planner/services",
+  "/dashboard/profile/page": "/dashboard/profile",
+  "/dashboard/traffic/page": "/dashboard/traffic",
+  "/dashboard/trips/page": "/dashboard/trips",
+  "/favicon.ico/route": "/favicon.ico",
+  "/page": "/"
+}

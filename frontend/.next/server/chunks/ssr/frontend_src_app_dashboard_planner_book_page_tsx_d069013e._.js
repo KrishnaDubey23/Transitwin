@@ -1,0 +1,3 @@
+module.exports=[48779,a=>{"use strict";var b=a.i(57850),c=a.i(45056),d=a.i(93609);function e(){let a=(0,d.useRouter)();return(0,c.useEffect)(()=>{a.replace("/dashboard/planner/services")},[a]),(0,b.jsx)("div",{className:"flex min-h-[200px] items-center justify-center",children:(0,b.jsx)("p",{className:"text-[#6B6B6B] text-sm",children:"Redirecting to Book Supporting Services..."})})}a.s(["default",()=>e])}];
+
+//# sourceMappingURL=frontend_src_app_dashboard_planner_book_page_tsx_d069013e._.js.map

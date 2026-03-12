@@ -1,0 +1,11 @@
+{
+  "/dashboard/bookings/confirm/page": "app/dashboard/bookings/confirm/page.js",
+  "/dashboard/bookings/page": "app/dashboard/bookings/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/dashboard/planner/page": "app/dashboard/planner/page.js",
+  "/dashboard/planner/services/page": "app/dashboard/planner/services/page.js",
+  "/dashboard/profile/page": "app/dashboard/profile/page.js",
+  "/dashboard/traffic/page": "app/dashboard/traffic/page.js",
+  "/dashboard/trips/page": "app/dashboard/trips/page.js",
+  "/page": "app/page.js"
+}

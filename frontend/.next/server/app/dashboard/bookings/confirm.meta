@@ -1,0 +1,17 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/dashboard/layout,_N_T_/dashboard/bookings/layout,_N_T_/dashboard/bookings/confirm/layout,_N_T_/dashboard/bookings/confirm/page,_N_T_/dashboard/bookings/confirm"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/dashboard/bookings/confirm/__PAGE__",
+    "/dashboard/bookings/confirm",
+    "/dashboard/bookings",
+    "/dashboard",
+    "/_index",
+    "/_head"
+  ]
+}
