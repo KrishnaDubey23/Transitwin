@@ -5,7 +5,6 @@ import Link from "next/link";
 const productLinks = [
   { href: "#features", label: "Features" },
   { href: "#how-it-works", label: "How It Works" },
-  { href: "#technology", label: "Technology" },
 ];
 
 const companyLinks = [
